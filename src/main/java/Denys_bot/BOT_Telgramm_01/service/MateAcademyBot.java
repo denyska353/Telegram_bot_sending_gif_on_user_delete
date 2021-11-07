@@ -32,6 +32,7 @@ public class MateAcademyBot extends TelegramLongPollingBot {
 
 
         Message message = update.getMessage();
+
         if(message.getLeftChatMember() != null)
         {
             System.out.println(message.getLeftChatMember());
