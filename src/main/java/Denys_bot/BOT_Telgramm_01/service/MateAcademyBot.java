@@ -35,6 +35,36 @@ public class MateAcademyBot extends TelegramLongPollingBot {
 
         if(message.getLeftChatMember() != null)
         {
+            String chat_id = update.getMessage().getChatId().toString();
+            String filePath = "D:\\java\\Spring\\BOT_Telgramm_0.1\\died.gif";
+            File file = new File(filePath);
+
+            if (!file.exists())
+                System.out.println("no such file");
+            try {
+                InputFile inputStream = new InputFile(file);
+                SendDocument sendDocumentRequest = new SendDocument();
+                sendDocumentRequest.setChatId(message.getChatId().toString());
+                sendDocumentRequest.setDocument(inputStream);
+                sendDocumentRequest.setCaption("-1 ((((((((((");
+                try
+                {
+                    execute(sendDocumentRequest);
+                }
+                catch (TelegramApiException e)
+                {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            //SendMessage sendmessage = new SendMessage();
+
+           // sendmessage.setChatId(chat_id);
+            //sendmessage.setText("-1 ((((((((((");
+
             System.out.println(message.getLeftChatMember());
             System.out.println("Delete message geted");
         }
